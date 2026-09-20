@@ -1,0 +1,225 @@
+/* ------------------------------------------------------------------ */
+/* Hero (landing) — matches the reference design                      */
+/* ------------------------------------------------------------------ */
+
+.hero {
+    background: #ffffff;
+    padding: 4rem 2rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+.hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #e7f3ec;
+    color: #2f8b57;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+}
+
+.hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2f8b57;
+}
+
+.hero-title {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.hero-title-accent {
+    color: #2f8b57;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #6b6b6b;
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 0;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-cta {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 0.85rem 1.75rem;
+    border-radius: 14px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.hero-cta:hover {
+    background: #000;
+}
+
+/* ------------------------------------------------------------------ */
+/* Mock dashboard (hero visual)                                        */
+/* ------------------------------------------------------------------ */
+
+.hero-visual {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 960px;
+}
+
+.mock-window {
+    background: #f7f7f7;
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.mock-window-dots {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+}
+
+.mock-window-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.mock-window-dot.red { background: #ff5f57; }
+.mock-window-dot.yellow { background: #febc2e; }
+.mock-window-dot.green { background: #28c840; }
+
+.mock-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.mock-stat-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 1.25rem;
+}
+
+.mock-stat-label {
+    font-size: 0.85rem;
+    color: #8a8a8a;
+    margin-bottom: 0.5rem;
+}
+
+.mock-stat-value {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.mock-stat-sub {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.mock-stat-sub.up { color: #d13438; }
+.mock-stat-sub.good { color: #2f8b57; }
+.mock-stat-sub.neutral { color: #8a8a8a; }
+
+.mock-chart-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 1.5rem;
+}
+
+.mock-chart-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.mock-chart-row:last-child {
+    margin-bottom: 0;
+}
+
+.mock-chart-label {
+    width: 80px;
+    font-size: 0.95rem;
+    color: #5a5a5a;
+}
+
+.mock-chart-bar-track {
+    flex: 1;
+    height: 10px;
+    background: #eeeeea;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.mock-chart-bar {
+    height: 100%;
+    border-radius: 999px;
+}
+
+.mock-chart-bar.food { background: #e8a234; width: 75%; }
+.mock-chart-bar.travel { background: #4a7fd8; width: 45%; }
+.mock-chart-bar.bills { background: #7a68e0; width: 35%; }
+
+/* ------------------------------------------------------------------ */
+/* Responsive                                                          */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 720px) {
+    .hero {
+        padding: 2.5rem 1.25rem 3rem;
+        gap: 1rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .mock-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .mock-chart-label {
+        width: 60px;
+        font-size: 0.85rem;
+    }
+}
