@@ -24,7 +24,7 @@
         </p>
         <div class="hero-actions">
             <a href="{{ url_for('register') }}" class="hero-cta">Create free account</a>
-            <a href="#" class="hero-cta">See how it works</a>
+            <a href="#" class="hero-cta" id="seeHowItWorks">See how it works</a>
         </div>
         <div class="hero-visual">
             <div class="mock-window">
@@ -69,6 +69,22 @@
     </div>
 </section>
 
+<div class="modal-overlay" id="videoModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-label="Spendly — See how it works">
+        <button class="modal-close" id="modalClose" aria-label="Close video">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-body">
+            <iframe id="videoFrame" class="video-frame"
+                src="about:blank"
+                title="Spendly — See how it works"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
+
 <section class="features">
     <div class="features-inner">
         <div class="feature-card">
@@ -97,4 +113,43 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+    var YOUTUBE_URL = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0";
+    var overlay = document.getElementById("videoModal");
+    var frame = document.getElementById("videoFrame");
+    var openBtn = document.getElementById("seeHowItWorks");
+    var closeBtn = document.getElementById("modalClose");
+
+    function openModal() {
+        frame.setAttribute("src", YOUTUBE_URL);
+        overlay.classList.add("is-open");
+        overlay.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+        frame.setAttribute("src", "about:blank");
+        overlay.classList.remove("is-open");
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    }
+
+    openBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        openModal();
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+
+    overlay.addEventListener("click", function (event) {
+        if (event.target === overlay) {
+            closeModal();
+        }
+    });
+})();
+</script>
 {% endblock %}
